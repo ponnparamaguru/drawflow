@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rimtex | Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="w-full h-screen flex flex-row">
+    <div class="w-1/2 h-screen bg-red-600 rounded-tr-[350px] rounded-br-[350px] flex flex-col justify-center">
+    <div class="p-10">
+        <h2 class="text-white text-3xl font-semibold">A few more clicks to <br/>   sign in to your account</h2>
+        <h2 class="text-white text-md mt-5">Manage all process in one place.</h2>
+    </div>
+    </div>
+    <div class="w-1/2 h-screen flex flex-col justify-center items-center">
+        <form class="w-6/12 flex flex-col gap-5">
+            <h1 class="text-3xl text-slate-700 font-bold">Sign In</h1>
+            <input type="email" id="email" class="w-full h-12 p-2 border border-slate-300 rounded-md" placeholder="Email"/>
+            <div class="relative">
+                <input type="password" id="password" class="w-full h-12 p-2 border border-slate-300 rounded-md" placeholder="Password"/>
+                <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                    <svg id="eyeIcon" class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path id="eyePathOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0zM2.458 12C3.732 7.92 7.738 4.5 12 4.5s8.268 3.42 9.542 7.5M12 19.5c-4.262 0-8.268-3.42-9.542-7.5m9.542 7.5c4.262 0 8.268-3.42 9.542-7.5"></path>
+                        <path id="eyePathClosed" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0zM2.458 12C3.732 7.92 7.738 4.5 12 4.5s8.268 3.42 9.542 7.5M12 19.5c-4.262 0-8.268-3.42-9.542-7.5m9.542 7.5c4.262 0 8.268-3.42 9.542-7.5M3.5 6.5l17 17"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex justify-between items-center text-slate-700">
+                <div class="flex items-center">
+                    <input type="checkbox" class="transition-all duration-100 ease-in-out shadow-sm border-slate-200 cursor-pointer" value="" />
+                    <label class="cursor-pointer ml-1">Remember me</label>
+                </div>
+                <p class="cursor-pointer">Forgot Password?</p>
+            </div>
+            <input type="submit" class="bg-red-600 text-white w-2/6 h-12 p-2 border border-slate-300 rounded-md" value="Login"/>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const passwordInput = document.getElementById('password');
+            const togglePassword = document.getElementById('togglePassword');
+            const eyeIconOpen = document.getElementById('eyePathOpen');
+            const eyeIconClosed = document.getElementById('eyePathClosed');
+
+            togglePassword.addEventListener('click', () => {
+                const type = passwordInput.type === 'password' ? 'text' : 'password';
+                passwordInput.type = type;
+
+                if (type === 'password') {
+                    eyeIconOpen.classList.remove('hidden');
+                    eyeIconClosed.classList.add('hidden');
+                } else {
+                    eyeIconOpen.classList.add('hidden');
+                    eyeIconClosed.classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
